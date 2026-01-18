@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shi-Qi Cao | Personal Homepage</title>
+  <meta name="description" content="Shi-Qi Cao — Center for Combinatorics, Nankai University. Research: AI for math, Matroid theory, Enumerative Combinatorics." />
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --panel:#0f172a;
+      --card:#111c33;
+      --text:#e6eaf2;
+      --muted:#a9b3c7;
+      --line:rgba(255,255,255,.10);
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --shadow: 0 12px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+      --maxw: 980px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --panel:#ffffff;
+        --card:#ffffff;
+        --text:#0c1220;
+        --muted:#44506b;
+        --line:rgba(10,20,40,.10);
+        --shadow: 0 12px 30px rgba(16,24,40,.10);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(125,211,252,.18), transparent 55%),
+                  radial-gradient(900px 600px at 85% 0%, rgba(167,139,250,.14), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.92}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 18px 60px}
+    .topbar{
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width:var(--maxw); margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 18px;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(125,211,252,.12);
+    }
+    .nav{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .chip{
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size: 13px;
+      background: color-mix(in srgb, var(--panel) 78%, transparent);
+    }
+    .chip:hover{color:var(--text); border-color: color-mix(in srgb, var(--accent) 45%, var(--line))}
+    .hero{
+      margin-top: 22px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 92%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      padding: 22px;
+      align-items:center;
+    }
+    @media (max-width: 700px){
+      .hero-inner{grid-template-columns:1fr; text-align:left}
+    }
+    .avatar{
+      width:150px; height:190px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    h1{margin:0 0 6px; font-size: 34px; line-height:1.15}
+    .subtitle{margin:0; color:var(--muted); font-size: 15px}
+    .badges{margin-top: 14px; display:flex; flex-wrap:wrap; gap:10px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .badge strong{color:var(--text); font-weight:600}
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 82%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .muted{color:var(--muted)}
+    ul{margin:10px 0 0 18px; padding:0}
+    li{margin:8px 0}
+    .kvs{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 8px 14px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    @media (max-width: 520px){ .kvs{grid-template-columns: 1fr} }
+    .k{color:var(--muted)}
+    .line{height:1px; background:var(--line); margin: 14px 0}
+    .pub-title{font-weight:700}
+    .pill{
+      display:inline-flex;
+      font-size:12px;
+      padding:4px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    footer{
+      margin-top: 24px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .small{font-size: 13px}
+    .anchor{scroll-margin-top: 78px;}
+
+    /* email/phone inline list in hero */
+    .contacts{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .contacts a{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent);
+    }
+    .contacts a:hover{opacity: .9;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shi-Qi Cao",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Center for Combinatorics, Nankai University"
+    },
+    "address": "Tianjin, P. R. China",
+    "email": [
+      "shiqicao@mail.nankai.edu.cn",
+      "caoshi100@163.com"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="brandName">Shi-Qi Cao</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="chip" data-nav="about" href="#about">About</a>
+        <a class="chip" data-nav="research" href="#research">Research</a>
+        <a class="chip" data-nav="education" href="#education">Education</a>
+        <a class="chip" data-nav="honors" href="#honors">Honors</a>
+        <a class="chip" data-nav="activities" href="#activities">Social Activities</a>
+        <a class="chip" data-nav="contact" href="#contact">Contact</a>
+
+        <!-- language toggle (same page) -->
+        <a class="chip" href="#" id="langToggle" aria-label="Switch language">中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <main class="wrap" id="main-en">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="avatar" aria-label="Profile photo">
+          <img src="证件照.jpg" alt="Portrait of Shi-Qi Cao">
+        </div>
+
+        <div>
+          <h1>Shi-Qi Cao</h1>
+          <p class="subtitle">
+            Master’s student · Center for Combinatorics, Nankai University · Applied Mathematics
+          </p>
+
+          <div class="badges" role="list" aria-label="Quick facts">
+            <span class="badge" role="listitem"><strong>Research</strong>&nbsp;AI for math · Matroid theory · Enumerative combinatorics</span>
+            <span class="badge" role="listitem"><strong>From</strong>&nbsp;Haikou, Hainan</span>
+            <span class="badge" role="listitem"><strong>Location</strong>&nbsp;Tianjin, China</span>
+          </div>
+
+          <div class="contacts" aria-label="Contact">
+            <span>Email:</span>
+            <a href="mailto:shiqicao@mail.nankai.edu.cn">shiqicao@mail.nankai.edu.cn</a>
+            <a href="mailto:caoshiqi100@163.com">caoshiqi100@163.com</a>
+
+            <span>Phone:</span>
+            <a href="tel:+8618976257211">+86 189 7625 7211</a>
+
+            <a href="#research">View Research</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Main content">
+      <!-- LEFT COLUMN -->
+      <section class="card anchor" id="about">
+        <h2>About</h2>
+        <p class="muted">
+          I received my B.S. in Mathematics and Applied Mathematics from Zhengzhou University (2024). I am currently a master’s student at
+          the Center for Combinatorics, Nankai University.
+        </p>
+        <p class="muted">
+          My current research interests focus on studying and addressing the log-concavity of matroid-related polynomials and sequences by leveraging tools such as Lorentzian polynomial theory and AI-based algorithms.
+        </p>
+
+        <div class="line"></div>
+
+        <h2>Personal Information</h2>
+        <div class="kvs">
+          <div class="k">Gender</div><div>Male</div>
+          <div class="k">Birthdate</div><div>2002-09-08</div>
+          <div class="k">Age</div><div>23</div>
+          <div class="k">Address</div><div>Center for Combinatorics, Nankai University, Tianjin, P. R. China</div>
+        </div>
+
+        <div class="line"></div>
+
+        <h2 id="contact" class="anchor">Contact</h2>
+        <div class="kvs">
+          <div class="k">Email (academic)</div><div><a href="mailto:shiqicao@mail.nankai.edu.cn">shiqicao@mail.nankai.edu.cn</a></div>
+          <div class="k">Email</div><div><a href="mailto:caoshiqi100@163.com">caoshiqi100@163.com</a></div>
+          <div class="k">Tel</div><div><a href="tel:+8618976257211">+86 189 7625 7211</a></div>
+          <div class="k">WeChat ID</div><div>csq1589447086</div>
+        </div>
+
+        <!-- MOVED HERE (under Contact) -->
+        <div class="line"></div>
+
+        <h2 id="activities" class="anchor">Social Activities</h2>
+        <ul>
+          <li>Jun 2024 – Present · Executive Council Member, Zhengzhou University Class of 2024 Alumni Association</li>
+        </ul>
+
+        <!-- MOVED HERE (under Social Activities) -->
+        <div class="line"></div>
+
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Badminton, Running, Football</li>
+        </ul>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="card anchor" id="research" aria-label="Research">
+        <h2>Research</h2>
+        <p class="muted">
+          Interests: AI for math, matroid theory, and enumerative combinatorics.
+        </p>
+
+        <div class="line"></div>
+
+        <h2>Publication</h2>
+        <ul>
+          <li>
+            <span class="pub-title">Dowling’s polynomial conjecture for independent sets of matroids</span>
+            <span class="pill">to appear</span>
+            <div class="muted small" style="margin-top:6px;">
+              with Ke-Yi Chen, Yi-Tian Li, and Yu-Xin Wu ·
+              · <a class="muted" href="https://arxiv.org/abs/2601.03809">(arXiv)</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="line"></div>
+
+        <h2 id="education" class="anchor">Education</h2>
+        <ul>
+          <li>
+            <strong>Zhengzhou University</strong>, B.S. (Sep 2020 – Jun 2024)
+            <div class="muted small">School of Mathematics and Statistics · Mathematics and Applied Mathematics</div>
+          </li>
+          <li>
+            <strong>Nankai University</strong>, Master (Sep 2024 – Present)
+            <div class="muted small">Center for Combinatorics · Applied Mathematics</div>
+            <div class="muted small">Advisor: Arthur <a href="https://my.nankai.edu.cn/combinatorics/ylb_en/list.htm">L. B. Yang</a></div>
+          </li>
+        </ul>
+
+        <div class="line"></div>
+
+        <h2 id="honors" class="anchor">Honors</h2>
+        <ul>
+          <li>May 2024 · “Outstanding Graduate”, Zhengzhou University</li>
+          <li>2025 · Gongneng Scholarship (Third Prize), Nankai University</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span class="year"></span> Shi-Qi Cao</div>
+    </footer>
+  </main>
+
+  <!-- ===================== CHINESE ===================== -->
+  <main class="wrap" id="main-zh" style="display:none;">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="avatar" aria-label="Profile photo">
+          <img src="证件照.jpg" alt="曹施祺证件照">
+        </div>
+
+        <div>
+          <h1>曹施祺（Shi-Qi Cao）</h1>
+          <p class="subtitle">
+            硕士研究生 · 南开大学组合数学中心 · 应用数学
+          </p>
+
+          <div class="badges" role="list" aria-label="Quick facts">
+            <span class="badge" role="listitem"><strong>研究方向</strong>&nbsp;数学与人工智能 · 拟阵理论 · 计数组合学</span>
+            <span class="badge" role="listitem"><strong>籍贯</strong>&nbsp;海南海口</span>
+            <span class="badge" role="listitem"><strong>所在地</strong>&nbsp;天津</span>
+          </div>
+
+          <div class="contacts" aria-label="Contact">
+            <span>邮箱：</span>
+            <a href="mailto:shiqicao@mail.nankai.edu.cn">shiqicao@mail.nankai.edu.cn</a>
+            <a href="mailto:caoshiqi100@163.com">caoshiqi100@163.com</a>
+
+            <span>电话：</span>
+            <a href="tel:+8618976257211">+86 189 7625 7211</a>
+
+            <a href="#research-zh">查看研究</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Main content">
+      <!-- LEFT COLUMN -->
+      <section class="card anchor" id="about-zh">
+        <h2>关于我</h2>
+        <p class="muted">
+          我于 2024 年获得郑州大学数学与应用数学学士学位，目前为南开大学组合数学中心应用数学方向硕士研究生。
+        </p>
+        <p class="muted">
+          目前主要感兴趣的方向为利用洛伦兹多项式（Lorentzian polynomials）理论和人工智能算法等工具，研究并解决拟阵相关多项式与序列的对数凹（log-concavity）问题。欢迎对此方向感兴趣的老师与同学交流讨论，并开展合作研究。
+        </p>
+
+        <div class="line"></div>
+
+        <h2>个人信息</h2>
+       <div class="kvs">
+          <div class="k">性别</div><div>男</div>
+          <div class="k">出生日期</div><div>2002-09-08</div>
+          <div class="k">年龄</div><div>23</div>
+          <div class="k">地址</div><div>南开大学组合数学中心，天津，中国</div>
+        </div>
+
+        <div class="line"></div>
+
+        <h2 id="contact-zh" class="anchor">联系方式</h2>
+        <div class="kvs">
+          <div class="k">学术邮箱</div><div><a href="mailto:shiqicao@mail.nankai.edu.cn">shiqicao@mail.nankai.edu.cn</a></div>
+          <div class="k">邮箱</div><div><a href="mailto:caoshiqi100@163.com">caoshiqi100@163.com</a></div>
+          <div class="k">电话</div><div><a href="tel:+8618976257211">+86 189 7625 7211</a></div>
+          <div class="k">微信号</div><div>csq1589447086</div>
+        </div>
+
+        <!-- MOVED HERE (under 联系方式) -->
+        <div class="line"></div>
+
+        <h2 id="activities-zh" class="anchor">社会活动</h2>
+        <ul>
+          <li>2024.06 – 至今 · 郑州大学 2024 届校友会常务理事</li>
+        </ul>
+
+        <!-- MOVED HERE (under 社会活动) -->
+        <div class="line"></div>
+
+        <h2>兴趣爱好</h2>
+        <ul>
+          <li>羽毛球、跑步、足球</li>
+        </ul>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="card anchor" id="research-zh" aria-label="Research">
+        <h2>研究</h2>
+        <p class="muted">
+          研究兴趣：数学与人工智能，拟阵理论，计数组合学。
+        </p>
+
+        <div class="line"></div>
+
+        <h2>论文</h2>
+        <ul>
+          <li>
+            <span class="pub-title">Dowling’s polynomial conjecture for independent sets of matroids</span>
+            <span class="pill">即将发表</span>
+            <div class="muted small" style="margin-top:6px;">
+              合作者:陈科屹，李奕天，吴宇鑫 ·
+              · <a class="muted" href="https://arxiv.org/abs/2601.03809">(arXiv)</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="line"></div>
+
+        <h2 id="education-zh" class="anchor">教育经历</h2>
+        <ul>
+          <li>
+            <strong>郑州大学</strong>，本科（2020.09 – 2024.06）
+            <div class="muted small">数学与统计学院 · 数学与应用数学</div>
+          </li>
+          <li>
+            <strong>南开大学</strong>，硕士（2024.09 – 至今）
+            <div class="muted small">组合数学中心 · 应用数学</div>
+            <div class="muted small">导师：<a href="https://my.nankai.edu.cn/combinatorics/ylb_en/list.htm">杨立波</a></div>
+          </li>
+        </ul>
+
+        <div class="line"></div>
+
+        <h2 id="honors-zh" class="anchor">荣誉奖励</h2>
+        <ul>
+          <li>2024.05 · 郑州大学“优秀毕业生”</li>
+          <li>2025 · 南开大学“公能奖学金”（三等）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span class="year"></span> 曹施祺 </div>
+    </footer>
+  </main>
+
+  <script>
+    // year in both footers
+    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
+    const mainEn = document.getElementById('main-en');
+    const mainZh = document.getElementById('main-zh');
+    const toggle = document.getElementById('langToggle');
+
+    const navMap = {
+      en: {
+        texts: {
+          about: 'About',
+          research: 'Research',
+          education: 'Education',
+          honors: 'Honors',
+          activities: 'Social Activities',
+          contact: 'Contact'
+        },
+        hrefs: {
+          about: '#about',
+          research: '#research',
+          education: '#education',
+          honors: '#honors',
+          activities: '#activities',
+          contact: '#contact'
+        },
+        toggleText: '中文',
+        htmlLang: 'en',
+        title: 'Shi-Qi Cao | Personal Homepage'
+      },
+      zh: {
+        texts: {
+          about: '关于',
+          research: '研究',
+          education: '教育',
+          honors: '荣誉',
+          activities: '社会活动',
+          contact: '联系'
+        },
+        hrefs: {
+          about: '#about-zh',
+          research: '#research-zh',
+          education: '#education-zh',
+          honors: '#honors-zh',
+          activities: '#activities-zh',
+          contact: '#contact-zh'
+        },
+        toggleText: 'EN',
+        htmlLang: 'zh-CN',
+        title: '曹施祺 | 个人主页'
+      }
+    };
+
+    function setLang(lang){
+      const cfg = navMap[lang];
+
+      mainEn.style.display = (lang === 'en') ? 'block' : 'none';
+      mainZh.style.display = (lang === 'zh') ? 'block' : 'none';
+
+      document.querySelectorAll('[data-nav]').forEach(a => {
+        const key = a.getAttribute('data-nav');
+        if (cfg.texts[key]) a.textContent = cfg.texts[key];
+        if (cfg.hrefs[key]) a.setAttribute('href', cfg.hrefs[key]);
+      });
+
+      toggle.textContent = cfg.toggleText;
+      document.documentElement.lang = cfg.htmlLang;
+      document.title = cfg.title;
+
+      localStorage.setItem('lang', lang);
+    }
+
+    // default: EN first (but keep saved choice if user switched before)
+    const saved = localStorage.getItem('lang');
+    let current = saved || 'en';
+    setLang(current);
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      current = (current === 'en') ? 'zh' : 'en';
+      setLang(current);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
